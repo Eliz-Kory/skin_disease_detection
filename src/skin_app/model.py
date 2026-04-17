@@ -1,38 +1,19 @@
-"""
-Модуль для работы с нейронной сетью.
-Содержит класс для классификации кожных заболеваний.
-"""
+"""Model abstraction layer for skin disease classification."""
+
+from __future__ import annotations
+
+import numpy as np
+
+from ml.inference import SkinConditionModel
+
 
 class SkinDiseaseClassifier:
-    """
-    Классификатор кожных заболеваний на основе нейронной сети.
-    
-    Attributes:
-        model: Обученная модель нейронной сети.
-        classes: Список классов заболеваний.
-    """
-    
-    def __init__(self, model_path=None):
-        """
-        Инициализация классификатора.
-        
-        Args:
-            model_path: Путь к файлу с весами модели.
-        """
+    """Classifier facade with a placeholder strategy until real model is integrated."""
+
+    def __init__(self, model_path: str | None = None) -> None:
         self.model_path = model_path
-        self.classes = ['healthy', 'eczema', 'psoriasis']
-    
-    def predict(self, image):
-        """
-        Предсказание заболевания по изображению.
-        
-        Args:
-            image: Изображение в формате numpy array.
-            
-        Returns:
-            dict: Словарь с результатом предсказания.
-        """
-        return {
-            'disease': 'healthy',
-            'confidence': 0.95
-        }
+        self.model = SkinConditionModel(model_path=model_path)
+
+    def predict(self, image: np.ndarray) -> dict:
+        """Predict disease and severity using ML inference pipeline."""
+        return self.model.predict(image).to_dict()
