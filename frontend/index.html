@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DermaVision - Детекция заболеваний кожи</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body>
+  <div class="page-glow page-glow-left" aria-hidden="true"></div>
+  <div class="page-glow page-glow-right" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">+</span>
+      <div>
+        <p class="brand-name">DermaVision</p>
+        <p class="brand-subtitle">Клинический AI-скрининг</p>
+      </div>
+    </div>
+    <span class="status-pill">Безопасный анализ</span>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <p class="eyebrow">Надежный помощник анализа кожи</p>
+      <h1>Загрузите фото кожи и получите мгновенный результат AI-скрининга</h1>
+      <p class="lead">
+        Сервис выполняет предварительную классификацию и дает рекомендации.
+        Он не заменяет профессиональную медицинскую диагностику.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card upload-card">
+        <h2>Загрузка изображения</h2>
+        <p class="muted">Поддерживаются: JPG, JPEG, PNG, WEBP. Максимум: 5 МБ.</p>
+
+        <form id="predict-form" class="upload-form">
+          <label for="file-input" class="file-dropzone" id="dropzone">
+            <input id="file-input" name="file" type="file" accept="image/*" required />
+            <span class="dropzone-title">Выберите изображение</span>
+            <span class="dropzone-subtitle">или перетащите его сюда</span>
+          </label>
+
+          <div class="preview-wrap" id="preview-wrap" hidden>
+            <img id="preview-image" alt="Предпросмотр загруженного фото" />
+          </div>
+
+          <button class="btn-primary" id="submit-btn" type="submit">Анализировать фото</button>
+        </form>
+      </article>
+
+      <article class="card result-card">
+        <h2>Результат анализа</h2>
+        <p class="muted">После успешной загрузки результат появится здесь.</p>
+
+        <div class="result-state" id="result-state">
+          <p class="result-placeholder">Ожидание загрузки изображения...</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Только для образовательной и предварительной оценки. Для диагноза обратитесь к дерматологу.</p>
+  </footer>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>
