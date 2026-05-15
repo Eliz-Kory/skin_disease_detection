@@ -1,0 +1,12 @@
+services:
+  skin-disease-app:
+    build: .
+    container_name: skin-disease-detection
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_DEBUG: "0"
+      MODEL_PATH: /app/models/skin_rf.joblib
+    volumes:
+      - ./models:/app/models:ro
+    restart: unless-stopped
