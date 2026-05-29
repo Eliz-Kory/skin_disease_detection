@@ -18,4 +18,4 @@ dist/
 .ipynb_checkpoints/
 .DS_Store
 models/*.pth
-models/*.joblib
+!models/*.joblib

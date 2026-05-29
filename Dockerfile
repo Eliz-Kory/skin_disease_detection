@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
     FLASK_ENV=production \
-    MODEL_PATH=/app/models/skin_rf.joblib
+    MODEL_PATH=/app/ml/models/skin_rf.joblib
 
 WORKDIR /app
 
